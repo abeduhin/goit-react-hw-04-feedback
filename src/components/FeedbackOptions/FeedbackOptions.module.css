@@ -1,0 +1,47 @@
+.feedbackBtnList {
+  display: flex;
+  justify-content: center;
+  
+}
+.feedbackBtn {
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: Inter,sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  text-decoration: none;
+  transition: all .3s; 
+  box-shadow: 0 0 15px rgba(19, 4, 153, 0.5);
+  
+}
+
+.feedbackBtn:hover {
+  border-color: #06f;
+  color: rgb(232, 235, 240);
+  fill: #06f;
+  background-color: #06f;
+}
+
+.feedbackBtn:active {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+.feedbackBtn:nth-of-type(even) {
+    margin: auto 5rem;
+}
+
+@media (min-width: 768px) {
+  .feedbackBtn {
+    min-width: 170px;
+  }
+}
