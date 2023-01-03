@@ -5,13 +5,17 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from './Section/Section';
 import { Notification } from './Notification/Notification';
 
+import {FEEDBACK_OPTIONS} from "../data/constans"
+
+const INITIAL_STATE = {
+  good: 0,
+  neutral: 0,
+  bad: 0,
+}
 
 export class App extends Component {
-  state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
+  state = { ...INITIAL_STATE };
+    
 // Вказуємо початковий стан
   handleFeedback = e => {
     if (e === 'Good') {
@@ -43,7 +47,7 @@ export class App extends Component {
       
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={['Good', 'Neutral', 'Bad']}
+            options={ FEEDBACK_OPTIONS }
             onLeaveFeedback={this.handleFeedback}
           />
         </Section>
