@@ -17,16 +17,24 @@ export class App extends Component {
   state = { ...INITIAL_STATE };
     
 // Вказуємо початковий стан
-  handleFeedback = e => {
-    if (e === 'Good') {
-      this.setState({ good: this.state.good + 1 });
-    } else if (e === 'Neutral') {
-      this.setState({ neutral: this.state.neutral + 1 });
-    } else if (e === 'Bad') {
-      this.setState({ bad: this.state.bad + 1 });
+  // handleFeedback = e => {
+  //   if (e === 'Good') {
+  //     this.setState({ good: this.state.good + 1 });
+  //   } else if (e === 'Neutral') {
+  //     this.setState({ neutral: this.state.neutral + 1 });
+  //   } else if (e === 'Bad') {
+  //     this.setState({ bad: this.state.bad + 1 });
+  //   }
+  // };
+  handleFeedback = () => {
+    const a = {
+      'Good': this.setState({ good: this.state.good + 1 }),
+      'Neutral': this.setState({ neutral: this.state.neutral + 1 }),
+      'Bad': this.setState({ bad: this.state.bad + 1 })
+    
     }
+    return a
   };
-
   // Змінюємо стан через this.setState ({}) та прописуємо умови - якщо e (SyntheticEvent) дорівнює GOOD то лічільник good збільшується на 1, якщо інше - то інше +1
 
   countTotalFeedback = () => {
