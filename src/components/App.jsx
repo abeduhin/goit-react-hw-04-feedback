@@ -5,7 +5,7 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from './Section/Section';
 import { Notification } from './Notification/Notification';
 
-import {FEEDBACK_OPTIONS} from "../data/constans"
+// import {FEEDBACK_OPTIONS} from "../data/constans"
 
 const INITIAL_STATE = {
   good: 0,
@@ -15,27 +15,16 @@ const INITIAL_STATE = {
 
 export class App extends Component {
   state = { ...INITIAL_STATE };
-    
+
 // Вказуємо початковий стан
-  // handleFeedback = e => {
-  //   if (e === 'Good') {
-  //     this.setState({ good: this.state.good + 1 });
-  //   } else if (e === 'Neutral') {
-  //     this.setState({ neutral: this.state.neutral + 1 });
-  //   } else if (e === 'Bad') {
-  //     this.setState({ bad: this.state.bad + 1 });
-  //   }
-  // };
-  handleFeedback = () => {
-    const a = {
-      'Good': this.setState({ good: this.state.good + 1 }),
-      'Neutral': this.setState({ neutral: this.state.neutral + 1 }),
-      'Bad': this.setState({ bad: this.state.bad + 1 })
+  
+  handleFeedback = option => {
+    this.setState(state => ({
+        [option]: state[option] + 1,
+    }))
     
-    }
-    return a
-  };
-  // Змінюємо стан через this.setState ({}) та прописуємо умови - якщо e (SyntheticEvent) дорівнює GOOD то лічільник good збільшується на 1, якщо інше - то інше +1
+  }
+  // Змінюємо стан через this.setState ({}) 
 
   countTotalFeedback = () => {
     let total = this.state.good + this.state.neutral + this.state.bad;
@@ -55,7 +44,7 @@ export class App extends Component {
       
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={ FEEDBACK_OPTIONS }
+            options={ Object.keys(this.state) }
             onLeaveFeedback={this.handleFeedback}
           />
         </Section>
