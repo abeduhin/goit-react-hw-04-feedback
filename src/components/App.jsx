@@ -13,12 +13,12 @@ export const App = () => {
 
 // Вказуємо початковий стан  
 
-  const handleFeedback = e => {
-    if (e === 'Good') {
+  const handleFeedback = option => {
+    if (option === 'Good') {
       setGood(good + 1);
-    } else if (e === 'Neutral') {
+    } else if (option === 'Neutral') {
       setNeutral(neutral + 1);
-    } else if (e === 'Bad') {
+    } else if (option === 'Bad') {
       setBad(bad + 1);
     }
   }
