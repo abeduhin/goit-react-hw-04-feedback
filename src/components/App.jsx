@@ -15,11 +15,11 @@ export const App = () => {
 
   const handleFeedback = option => {
     if (option === 'Good') {
-      setGood(good + 1);
+      setGood(prevgood => prevgood + 1);
     } else if (option === 'Neutral') {
-      setNeutral(neutral + 1);
+      setNeutral(prevneutral => prevneutral + 1);
     } else if (option === 'Bad') {
-      setBad(bad + 1);
+      setBad(prevbad => prevbad + 1);
     }
   }
   
